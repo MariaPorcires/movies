@@ -1,19 +1,22 @@
 
 import './App.css'
-import { useEffect } from 'react'
+import { useState } from 'react'
 import SearchMovies from './components/SearchMovies/SearchMovies';
+import DisplayMovies from './components/DisplayMovies/DisplayMovies';
 
 
 
 function App() {
+  const [movies, setMovies] = useState([]) //spara alla filmer från APIanropet
  
   
 
 
   return (
-    <>
-      <SearchMovies />
-    </>
+    <div>
+      <SearchMovies updateMovies={setMovies}/>
+      <DisplayMovies movies={movies} />
+    </div>
   )
 }
 
